@@ -7,6 +7,11 @@ const nextConfig = {
                 pathname: "**",
                 port: "3000",
                 protocol: 'http',
+            },
+            {
+                hostname: "hippoexchange-production.up.railway.app",
+                protocol: "https",
+                pathname: "**",
             }
         ]
     }
