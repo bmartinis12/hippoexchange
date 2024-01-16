@@ -15,7 +15,7 @@ const EmailTemplate = ({ actionLabel, buttonText, href }: EmailTemplateProps) =>
             <Body style={main}>
                 <Container style={container}>
                     <Img
-                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}/hippo-newsletter-sign-up.png`}
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}/hippo-email-sent.png`}
                         width="150"
                         height="150"
                         alt="HippoExchange"

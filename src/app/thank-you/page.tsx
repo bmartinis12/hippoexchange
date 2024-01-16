@@ -8,6 +8,7 @@ import { PRODUCT_CATEGORIES } from "@/config";
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 import PaymentStatus from "@/components/PaymentStatus";
+import { useCart } from "@/hooks/use-cart";
 
 interface PageProps {
     searchParams: { [key: string]: string | string[] | undefined }
@@ -16,6 +17,9 @@ interface PageProps {
 const Page = async ({ searchParams }: PageProps) => {
 
     const payload = await getPayloadClient();
+
+    const { clearCart } = useCart();
+    clearCart();
 
     const orderId = searchParams.orderId;
     const nextCookies = cookies();
