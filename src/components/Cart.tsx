@@ -80,10 +80,10 @@ const Cart = () => {
                         <div aria-hidden='true' className="relative mb-4 h-60 w-60 text-muted-foreground">
                             <Image src='/hippo-empty-cart.png' fill sizes="100%" alt="empty shopping cart hippo" />
                         </div>
-                        <div className="text-xl font-semibold">Your cart is empty</div>
+                        <div className="text-xl font-semibold text-center">Your cart is empty</div>
                         <SheetTrigger asChild>
                             <Link href='/products' className={buttonVariants({
-                                className: 'text-sm text-muted-foreground',
+                                className: 'text-sm text-muted-foreground text-center',
                                 size: 'sm',
                                 variant: 'link'
                             })}>

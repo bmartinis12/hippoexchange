@@ -1,13 +1,21 @@
 'use client'
 
 import { PRODUCT_CATEGORIES } from '@/config'
+import { useAuth } from '@/hooks/use-auth'
+import { User } from '@/payload-types'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-const MobileNav = () => {
+interface MobileNavProps {
+    user: User | null
+}
+
+const MobileNav = ({ user }: MobileNavProps) => {
+
+    const { signOut } = useAuth();
 
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -35,7 +43,7 @@ const MobileNav = () => {
                 <Menu className='h-6 w-6' aria-hidden='true' />
             </button>
         )
-    }
+    };
 
     return (
         <div>
@@ -44,8 +52,8 @@ const MobileNav = () => {
             </div>
 
             <div className='fixed overflow-y-scroll overscroll-y-none inset-0 z-40 flex'>
-                <div className='w-4/5'>
-                    <div className='relative flex w-full min-h-screen max-w-sm flex-col overflow-y-auto bg-white pb-12 shadow-xl'>
+                <div className='w-screen sm:w-4/5'>
+                    <div className='relative flex w-full min-h-screen flex-col overflow-y-auto bg-white pb-12 shadow-xl'>
                         <div className='flex px-4 pb-2 pt-5'>
                             <button type='button' onClick={() => setIsOpen(false)} className='relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400'>
                                 <X className='h-6 w-6' aria-hidden='true' />
@@ -80,12 +88,25 @@ const MobileNav = () => {
                         </div>
 
                         <div className='space-y-6 border-t border-gray-200 px-4 py-6'>
-                            <div className='flow-root'>
-                                <Link onClick={() => closeOnCurrent('/sign-in')} href='/sign-in' className='-m-2 block p-2 font-medium text-gray-900'>Sign in</Link>
-                            </div>
-                            <div className='flow-root'>
-                                <Link onClick={() => closeOnCurrent('/sign-up')} href='/sign-up' className='-m-2 block p-2 font-medium text-gray-900'>Sign up</Link>
-                            </div>
+                            {user ? (
+                                <>
+                                    <div className="flow-root">
+                                        <Link onClick={() => closeOnCurrent('/sell')} href='/sell' className='-m-2 block p-2 font-medium text-gray-900'>Seller Dashboard</Link>
+                                    </div>
+                                    <div className="flow-root">
+                                        <p onClick={signOut} className='-m-2 block p-2 font-medium text-gray-900'>Logout</p>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className='flow-root'>
+                                        <Link onClick={() => closeOnCurrent('/sign-in')} href='/sign-in' className='-m-2 block p-2 font-medium text-gray-900'>Sign in</Link>
+                                    </div>
+                                    <div className='flow-root'>
+                                        <Link onClick={() => closeOnCurrent('/sign-up')} href='/sign-up' className='-m-2 block p-2 font-medium text-gray-900'>Sign up</Link>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

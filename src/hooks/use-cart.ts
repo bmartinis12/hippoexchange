@@ -21,6 +21,7 @@ export const useCart = create<CartState>()(
     persist((set) => ({
         items: [],
         addItem: (product) => set((state) => {
+            if (state.items.filter((item) => item.product.id === product.id).length > 0) return { items: [...state.items] }
             return { items: [...state.items, { product }] }
         }),
         removeItem: (id) => set((state) => ({

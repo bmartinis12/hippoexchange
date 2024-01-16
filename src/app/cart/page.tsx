@@ -54,7 +54,7 @@ const Page = () => {
                                 <div aria-hidden='true' className="relative mb-4 h-40 w-40 text-muted-foreground">
                                     <Image src='/hippo-empty-cart.png' fill sizes="100%" loading="eager" alt="hippo empty cart" priority />
                                 </div>
-                                <h3 className="font-semibold text-2xl">Your cart is empty</h3>
+                                <h3 className="font-semibold text-2xl text-center">Your cart is empty</h3>
                                 <p className="text-center text-muted-foreground">Whoops! Nothing to show here yet.</p>
                             </div>
                         ) : null}
@@ -67,7 +67,7 @@ const Page = () => {
                                 return (
                                     <li className="flex py-6 sm:py-10" key={product.id}>
                                         <div className="flex-shrink-0">
-                                            <div className="relative h-24 w-24">
+                                            <div className="relative h-20 sm:h-24 w-20 sm:w-24">
                                                 {typeof image !== "string" && image.url ? (
                                                     <Image src={image.url} fill sizes="100%" alt="product image" className="h-full w-full rounded-md object-cover object-center sm:h-48 sm:w-48" />
                                                 ) : null}

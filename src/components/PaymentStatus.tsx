@@ -24,12 +24,12 @@ const PaymentStatus = ({ orderEmail, orderId, isPaid }: PaymentStatusProps) => {
     }, [data?.isPaid, router]);
 
     return (
-        <div className="mt-16 grid grid-cols-2 gap-x-4 text-sem text-gray-600">
+        <div className="mt-16 sm:grid sm:grid-cols-2 gap-x-4 text-sem text-gray-600">
             <div>
                 <p className="font-medium text-gray-900">Shipping To</p>
                 <p>{orderEmail}</p>
             </div>
-            <div>
+            <div className="mt-6 sm:mt-0">
                 <p className="font-medium text-gray-900">Order Status</p>
                 <p>{isPaid ? "Payment successful" : "Pending payment"}</p>
             </div>

@@ -8,7 +8,6 @@ import { PRODUCT_CATEGORIES } from "@/config";
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 import PaymentStatus from "@/components/PaymentStatus";
-import { Loader2 } from "lucide-react";
 
 interface PageProps {
     searchParams: { [key: string]: string | string[] | undefined }
