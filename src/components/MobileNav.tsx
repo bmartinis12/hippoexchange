@@ -10,10 +10,10 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 interface MobileNavProps {
-    user: User | null
+    userId: string | null
 }
 
-const MobileNav = ({ user }: MobileNavProps) => {
+const MobileNav = ({ userId }: MobileNavProps) => {
 
     const { signOut } = useAuth();
 
@@ -88,7 +88,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                         </div>
 
                         <div className='space-y-6 border-t border-gray-200 px-4 py-6'>
-                            {user ? (
+                            {userId ? (
                                 <>
                                     <div className="flow-root">
                                         <Link onClick={() => closeOnCurrent('/sell')} href='/sell' className='-m-2 block p-2 font-medium text-gray-900'>Seller Dashboard</Link>
