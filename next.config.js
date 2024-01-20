@@ -7,7 +7,7 @@ const nextConfig = {
                 protocol: 'http',
             },
             {
-                hostname: "hippoexchange.onrender.com",
+                hostname: "hippoexchange-production.up.railway.app",
                 protocol: "https",
             }
         ]
