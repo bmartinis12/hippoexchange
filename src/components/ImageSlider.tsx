@@ -66,7 +66,7 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
             <Swiper pagination={{ renderBullet: (_, className) => { return `<span class="rounded-full transition ${className}"></span>` } }} onSwiper={(swiper) => setSwiper(swiper)} spaceBetween={50} slidesPerView={1} modules={[Pagination]} className='h-full w-full'>
                 {urls.map((url, i) => (
                     <SwiperSlide key={i} className='-z-10 relative h-full w-full'>
-                        <Image src={url ?? '/blankPhoto.png'} alt='product image' fill sizes='100%' priority className='-z-10 h-full w-full object-cover object-center' />
+                        <Image src={'/blankPhoto.png' ?? url} alt='product image' fill sizes='100%' priority className='-z-10 h-full w-full object-cover object-center' />
                     </SwiperSlide>
                 ))}
             </Swiper>
